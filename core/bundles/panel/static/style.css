@@ -1,0 +1,7 @@
+body {
+
+}
+
+.error-on .page , .error-off .error-message {
+	display: none;
+}

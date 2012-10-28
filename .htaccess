@@ -2,7 +2,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
-    RewriteRule ^(static|favicon.ico|humans.txt)($|/) - [L]
     RewriteRule ^core\/evolution\/init\.php$ - [L]
     RewriteRule .* /core/evolution/init.php [L]
 </IfModule>

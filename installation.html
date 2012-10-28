@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <title>EvolutionSDK Installation</title>
     <style>
       body {
         width: 960px;
@@ -30,11 +31,16 @@
     <p>This is an experimental version of EvolutionSDK and should not be used in production applications.</p>
 
     <h2>Installation Instructions [Ubuntu + Apache2]</h2>
+
+    <p><b>Notice:</b> Before continuing, please ensure that you have downloaded EvolutionSDK to your computer, and are comfortable executing basic commands in the terminal.</p>
+    
     <h3>1: Configure Hostname</h3>
     <p>Edit your hosts file with <code>sudo nano /etc/hosts</code> or your favorite editor, or for advanced users, your DNS server, to allow http://evolution.dev to point to
     a web server capable of handling PHP files.</p>
+
     <h3>2: Install a Web Server</h3>
     <p>For Ubuntu and Apache, <code>sudo apt-get install apache2 php5-common libapache2-mod-php5</code> should install the necessary components.</p>
+
     <h3>3: Configure Virtual Host</h3>
     <p>For Ubuntu and Apache, add a VirtualHost entry to the configuration file pointing to the EvolutionSDK root folder.</p>
     <p>First, add the site to available sites with <code>sudo nano /etc/apache2/sites-available/evolution</code> and enter the following configuration:</p>
@@ -70,18 +76,23 @@
 &lt;/VirtualHost&gt;
     </pre>
     <p>Enable the site by creating a hard link: <code>sudo ln /etc/apache2/sites-available/evolution /etc/apache2/sites-enabled/evolution</code></p>
+
     <h3>4: Enable URL Rewrite Module</h3>
     <p>For Ubuntu and Apache, <code>sudo a2enmod rewrite</code> will enable the rewrite module.</p>
+
     <h3>5: Start Webserver</h3>
     <p>For Ubuntu and Apache, <code>sudo apache2ctl restart</code> should be enough to (re)start the server.</p>
-    <h3>6: Check Status</h3>
-    <p>The current live status of your EvolutionSDK installation will be shown in the frame below.
+
+    <h3>6: Check Installation Status</h3>
+    <p>The current live status of your local EvolutionSDK installation will be shown in the frame below.
     Once everything is properly set up, you will see a green message stating that EvolutionSDK is installed. This information is refreshed every 5 seconds.</p> 
     <iframe id="status" src="http://evolution.dev/.evolution-status"></iframe>
     <script>
       setInterval(function(){document.getElementById('status').src='http://evolution.dev/.evolution-status'}, 5000);
     </script>
+
     <h3>7: PHP Configuration (Optional)</h3>
     <p>You may want to increase PHP memory limits, or turn on better debugging. The PHP configuration file is likely located at <code>/etc/php5/apache2/php.ini</code> &mdash; ensure that <code>memory_limit</code> is set to <code>128M</code> or higher, or memory issues may occur.</p>
+    <p>The EvolutionSDK error log can be accessed from the terminal with <code>tail -100f /var/log/apache2/evolution.error.log</code>, which should help in resolving any PHP issues.</p>
   </body>
 </html>

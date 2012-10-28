@@ -13,13 +13,23 @@
       h1 {
         margin-top: 0;
       }
+      a {
+        color: inherit;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
     <h1>EvolutionSDK is not installed</h1>
+    <!--evolution-status-[-->
     <p>Issue:</p>
     <ul><li>The Apache rewrite module is not functioning properly. EvolutionSDK uses rewrite to handle routing.</li></ul>
     <p>How to Fix:</p>
     <ul><li>Follow the instructions in <b>Steps 4 &ndash; 5</b> above.</li></ul>
+    <!--evolution-status-]-->
   </body>
 </html>

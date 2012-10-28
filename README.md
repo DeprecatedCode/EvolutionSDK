@@ -8,7 +8,7 @@ This code is unstable and is not recommended for any type of use whatsoever.
 
 ## Installation
 
-Please open the installation.html file included in this directory in your web browser and follow the instructions to set up EvolutionSDK.
+Download the project to your computer, and open the installation.html file included in this directory in your web browser. It contains clear instructions on how to set up EvolutionSDK, currently only for Ubuntu and Apache 2.0.
 
 ## Support
 
