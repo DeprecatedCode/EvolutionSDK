@@ -11,7 +11,7 @@ function raw($in) {
 $open = raw('<!--evolution-status-[-->');
 $close = raw('<!--evolution-status-]-->');
 $r = '/' . $open . '.*?' . $close . '/s';
-$html = file_get_contents(__DIR__ . '/../../../.evolution-status');
+$html = file_get_contents(__DIR__ . '/../../../status');
 $html = preg_replace('/background: .+?\;/', 'background: #060;', $html);
 $html = preg_replace('/not installed/', 'installed!', $html);
 echo preg_replace($r, '
