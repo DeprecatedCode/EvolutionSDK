@@ -2,6 +2,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
+    RewriteRule ^installation$ installation.html [L]
+    RewriteRule ^installation.html$ - [L]
     RewriteRule ^core\/evolution\/init\.php$ - [L]
     RewriteRule .* /core/evolution/init.php [L]
 </IfModule>

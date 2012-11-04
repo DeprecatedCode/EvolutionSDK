@@ -1,13 +1,40 @@
 <!doctype html>
 <html>
   <head>
+  	<title>EvolutionSDK 4.0.0</title>
   	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+  	<script src="/static/jquery.js"></script>
+  	<script src="/static/api.js?3"></script>
   </head>
   <body class="error-off">
-  	<div class="topbar">
-  		
+  	<ul class="bar-main">
+  		<li>EvolutionSDK 4.0.0</li>
+      <li class="menu">Sites
+        <span class="count" id="e-sites-menu-count">&hellip;</span>
+        <span class="drop"></span>
+        <ul id="e-sites-menu"></ul>
+      </li>
+  		<li class="menu" onclick="showfn('main')()">Guide</li>
+  	</ul>
+  	<div class="error-message page">
+  		<div>
+	  		<h1>Page Not Found</h1>
+	  	</div>
   	</div>
-  	<div class="error-message">404 Page Not Found</div>
-  	<div class="page">Loading EvolutionSDK Control Panel</div>
+  	<div class="page page-main">
+      <h1>Developing with EvolutionSDK</h1>
+      <h2>Bundle Locations</h2>
+      <p>The <code>bundle_paths.txt</code> file must contain a single bundle directory per line. This file will be used if it is located in the <code>/etc/evolution/</code>, <code>~/.local/etc/evolution/</code>, or <code>~/.evolution/</code> directories, where ~ refers to the second highest directory where EvolutionSDK is located.</p>
+      <p>Current bundle search paths, in order of priority:</p>
+      <ol id="e-guide-bundle-paths"><li class="code">&hellip;</li></ol>
+      <p>Discovered bundles:</p>
+      <ul class="bundles" id="e-guide-bundles"><li>&hellip;</li></ul>
+    </div>
+    <div class="page page-login">Login</div>
+  	<div class="page page-add-site">
+      <h1>Add an EvolutionSDK Site</h1>
+      <label>Name: <input id="e-add-site-name" /></label>
+      <button onclick="add_site()">Add Site</button>
+    </div>
   </body>
 </html>

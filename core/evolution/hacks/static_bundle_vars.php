@@ -13,23 +13,22 @@
  *
  * @author Nate Ferrero
  */
-function _static_bundle_vars() {
+function _e_hack_static_bundle_vars($path) {
 	static $ran = false;
 	if($ran == true) {
 		throw new Exception("Static Bundle Vars Hack called more than once");
 	}
 	$ran = true;
-	$code = 'class _e_hack_static_bundle_vars {';
-	$path = realpath(__DIR__ . '/../../bundles') . ';' . getenv('E_BUNDLES');
+	$code = "class _e_hack_static_bundle_vars {\n    public static $";
 	$bundles = array();
-	foreach(explode(';', $path) as $dir) {
+	foreach($path as $dir) {
 		if(strlen($dir) < 3) {
 			continue;
 		}
-		foreach(glob($dir . '/*', GLOB_ONLYDIR) as $bundle) {
-			$bundles[strtolower(basename($bundle))] = true;
+		foreach(glob($dir . '/*/_bundle.php') as $bundle) {
+			$bundles[strtolower(basename(dirname($bundle)))] = true;
 		}
 	}
-	$code .= "\n    public static $" . implode(";\n    public static $", array_keys($bundles));
+	$code .= implode(";\n    public static $", array_keys($bundles));
 	eval($code . ";\n}");
 }

@@ -15,8 +15,6 @@ class Bundle {
 	 */
 	private $_path;
 	private $_segments;
-	private $_is_preview = false;
-	private $_site;
 	private $_domain;
 
 	/**
@@ -35,15 +33,28 @@ class Bundle {
 		$this->_path = $_SERVER['REDIRECT_URL'];
 		$this->_segments = explode('/', $this->_path);
 		array_shift($this->_segments);
+	}
 
-		/**
-		 * Check for site preview
-		 */
-		if(count($this->_segments) >= 2 && $this->_segments[0] == '.preview') {
-			$this->_is_preview = true;
-			$this->_site = $this->_segments[1];
-			array_splice($this->_segments, 0, 2);
-		}
+	/**
+	 * Get the request depth
+	 */
+	public function depth() {
+		return count($this->_segments);
+	}
+
+	/**
+	 * Get a request segment
+	 */
+	public function get($pos) {
+		return isset($this->_segments[$pos]) ?
+			$this->_segments[$pos] : null;
+	}
+
+	/**
+	 * Shift segments
+	 */
+	public function shift($by = 1) {
+		return array_splice($this->_segments, 0, $by);
 	}
 
 	/**
@@ -64,7 +75,7 @@ class Bundle {
 	/**
 	 * Return a slice of segments
 	 */
-	public function slice($offset, $length = null) {
+	public function slice($offset = 0, $length = null) {
 		return array_slice($this->_segments, $offset, $length);
 	}
 }

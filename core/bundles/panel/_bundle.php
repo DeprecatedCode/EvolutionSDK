@@ -35,6 +35,15 @@ class Bundle {
 		}
 
 		/**
+		 * Handle API calls
+		 */
+		else if(e::$request->match('api')) {
+			echo json_encode(
+				(new API())->_handle(e::$request->slice(1))
+			);
+		}
+
+		/**
 		 * Handle Error page
 		 */
 		else {

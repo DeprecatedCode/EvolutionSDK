@@ -1,7 +1,184 @@
-body {
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700;Droid+Sans+Mono:400,700);
 
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: #222;
+	font-family: "Droid Sans", "Tahoma", "Sans", sans-serif;
 }
 
-.error-on .page , .error-off .error-message {
+h1 {
+	font-size: 18px;
+}
+
+h2 {
+	font-size: 16px;
+}
+
+h3, h4, h5 {
+	font-size: 14px;
+}
+
+.bar-main ul, .bar-main li {
+	padding: 0;
+	margin: 0;
+}
+
+ul.bundles {
+	list-style: none;
+}
+
+ul.bundles li {
+	margin-bottom: 1em;
+}
+
+ul.bundles span.name {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+ul.bundles code {
+	font-size: 80%;
+	color: #666;
+}
+
+.error-off .error-message {
 	display: none;
+}
+
+.bar-main {
+	position: fixed;
+	box-shadow: 0 0 1.5em #ddd;
+	z-index: 1000;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: #fff;
+	padding: 0 1em 0.5em;
+	margin: 0;
+	list-style: none;
+	cursor: default;
+	height: 43px;
+	cursor: default;
+	user-select: none;
+	-webkit-user-select: none;
+	white-space: nowrap;
+}
+
+.count {
+	padding: 0 0 0 0.5em;
+	color: #60c;
+}
+
+.bar-main > li {
+	color: #888;
+	padding: 0.5em 1em;
+	margin: 0.5em 0em 0;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.bar-main > li.menu {
+	color: inherit;
+}
+
+.bar-main > li.menu:hover {
+	color: white;
+	background: #60c;
+	box-shadow: inset 0 0 0.5em #104;
+	border-radius: 0.25em;
+}
+
+.bar-main > li.menu:hover .count {
+	color: #fff;
+}
+
+.bar-main > li.menu:hover span.drop:before {
+	content: "\25BE";
+	visibility: hidden;
+}
+
+.bar-main > li.menu ul {
+	display: block;
+	margin: 0.5em -1em 0;
+}
+
+.bar-main > li.menu span.drop:before {
+	content: "\25BE";
+	padding-left: 0.5em;
+	color: #888;
+	position: relative;
+	top: -1px;
+	display: inline;
+}
+
+.bar-main > li.menu ul li {
+	display: none;
+	font-size: 85%;
+	padding: 0.5em 2em 0.5em 1em;
+}
+
+.bar-main > li.menu ul li.separator {
+	content: "";
+	border-top: 2px dotted rgba(255, 255, 255, 0.2);
+	height: 0;
+	text-indent: 0 -25px;
+	overflow: hidden;
+	display: block;
+	background-color: transparent;
+	padding: 0;
+	margin: 0 0;
+}
+
+.bar-main > li.menu ul li.separator:hover {
+	background-color: transparent;
+}
+
+.bar-main > li.menu:hover ul li {
+	display: block;
+}
+
+.bar-main > li.menu ul li:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+} 
+
+.page {
+	padding: 5em 2em 2em;
+	display: none;
+	font-size: 90%;
+}
+
+.error-off .page-main {
+	display: block;
+}
+
+.error-on .page.error-message {
+	display: block;
+}
+
+.error-message div {
+	border: 1px solid #a00;
+	background: #fee;
+	color: #800;
+	padding: 0 1em;
+}
+
+.error-message div * {
+	margin: 1em 0;
+}
+
+h2 {
+	border-bottom: 3px double #aaa;
+	padding: 0.5em 0;
+	margin: 1em 0 0;
+}
+
+code, .code {
+	background: #fcfac0;
+	border-radius: 0.25em;
+	padding: 0.25em 0.5em;
+	font-size: 95%;
+	font-family: "Droid Sans Mono", monospace;
 }
