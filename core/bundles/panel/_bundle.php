@@ -30,7 +30,7 @@ class Bundle {
 		/**
 		 * Handle main page
 		 */
-		else if(e::$request->match('')) {
+		else if(e::$request->match(null)) {
 			readfile(__DIR__ . '/static/index.html');
 		}
 
