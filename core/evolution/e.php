@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Ensure output is controlled
+ */
+ob_start();
+
+/**
  * Ensure proper PHP version is installed
  */
 if(PHP_VERSION_ID < 50304) {
