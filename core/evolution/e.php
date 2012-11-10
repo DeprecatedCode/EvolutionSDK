@@ -9,7 +9,7 @@ ob_start();
  * Ensure proper PHP version is installed
  */
 if(PHP_VERSION_ID < 50304) {
-	die('PHP version 5.3.4 or greater is required to use EvolutionSDK');
+	die('PHP version 5.3.4 or greater is required to use EvolutionSDK, you have PHP ' . PHP_VERSION);
 }
 
 /**
